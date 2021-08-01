@@ -13,12 +13,18 @@
         <module name="cloud-eureka-server7001" />
         <module name="cloud-provider-payment8001" />
         <module name="cloud-eureka-server7002" />
-        <module name="cloud-consumer-order80" />
+        <module name="cloud-consumer-feign-hystrix-order80" />
         <module name="cloud-consumerzk-order80" />
+        <module name="cloud-consumerconsul-order80" />
+        <module name="cloud-consumer-order80" />
+        <module name="cloud-provider-hystrix-payment8001" />
+        <module name="cloud-provider-consul-payment8006" />
+        <module name="cloud-consumer-feign-order80" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="cloud-api-commons" target="1.8" />
+      <module name="cloud-eureka-server7002(copy)" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
