@@ -1,0 +1,34 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    gateway:
+      #动态路由开启
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: payment_routh
+          #uri: http://localhost:8001
+          uri: lb://cloud-payment-service
+          predicates:
+            - Path=/payment/get/**
+
+        - id: payment_routh2
+          #uri: http://localhost:8001
+          uri: lb://cloud-payment-service
+          predicates:
+            - Path=/payment/lb/**
+            - Cookie=username,zzyy
+            - Header=X-Request-Id, \d+ #请求头要有X-Request-Id属性并且值为整数的正则表达式
+eureka:
+  instance:
+    hostname: cloud-gateway-service
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka

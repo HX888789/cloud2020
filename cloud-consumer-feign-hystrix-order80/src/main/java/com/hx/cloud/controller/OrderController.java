@@ -18,7 +18,7 @@ public class OrderController {
     private PaymentFeignService paymentFeignService;
 
     @GetMapping("/consumer/payment/hystrix/ok/{id}")
-    public String paymentInfo_OK(@PathVariable("id") Integer id){
+    public String paymentInfoOK(@PathVariable("id") Integer id){
         String result = paymentFeignService.paymentInfo_OK(id);
         return result;
     }
@@ -28,6 +28,7 @@ public class OrderController {
 //            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",
 //            value = "1500")
 //    })
+
     @HystrixCommand
     public String paymentInfo_TIMEOUT(@PathVariable("id") Integer id){
         int i = 10/0;
@@ -35,11 +36,13 @@ public class OrderController {
         return result;
     }
 
+
     public String paymentInfo_TIMEOUT_Handler(@PathVariable("id") Integer id){
         return "我是消费者80，对方支付系统繁忙";
     }
+
     public String payment_Global_fallbackMethod(){
         return "全局异常处理";
     }
-
+    
 }
