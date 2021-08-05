@@ -6,10 +6,12 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/cloud-eureka-server7002/pom.xml" />
+        <option value="$PROJECT_DIR$/maozehan/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/cloud-config-client-3355/pom.xml" />
         <option value="$PROJECT_DIR$/cloud-eureka-server7002(copy)/pom.xml" />
       </set>
     </option>
